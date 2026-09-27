@@ -1,0 +1,1294 @@
+<style>
+
+/* =========================================
+   100 GOALS — SOFT EDITORIAL VERSION
+========================================= */
+
+:root{
+    --bg:#f4eee8;
+    --cream:#fbf7f2;
+    --paper:rgba(255,255,255,.46);
+
+    --ink:#4b514a;
+    --muted:#8d8b84;
+    --sage:#879688;
+    --sage-light:#cbd5ca;
+
+    --line:rgba(255,255,255,.72);
+
+    --shadow:
+        0 8px 28px rgba(87,76,65,.075);
+
+    --radius:17px;
+}
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    color:var(--ink);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight:400;
+
+    background:
+
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(255,255,255,.9),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 92% 15%,
+            rgba(207,220,207,.55),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(226,211,198,.55),
+            transparent 35%
+        ),
+
+        var(--bg);
+
+    min-height:100vh;
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+.app{
+
+    width:min(1120px,92%);
+
+    margin:auto;
+
+    padding:25px 0 45px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    margin-bottom:16px;
+}
+
+
+.brand h1{
+
+    margin:0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:32px;
+
+    line-height:1;
+
+    font-weight:400;
+
+    letter-spacing:-1px;
+}
+
+
+.brand p{
+
+    margin:7px 0 0;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    letter-spacing:.15px;
+}
+
+
+.eyebrow{
+
+    display:inline-block;
+
+    margin-bottom:7px;
+
+    color:var(--sage);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:8px;
+
+    font-weight:500;
+
+    letter-spacing:1.7px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:8px;
+
+    margin-bottom:10px;
+}
+
+
+.stat{
+
+    padding:10px 13px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.38);
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+
+    border:1px solid var(--line);
+
+    box-shadow:var(--shadow);
+}
+
+
+.stat small{
+
+    display:block;
+
+    margin-bottom:2px;
+
+    color:var(--muted);
+
+    font-family:Arial,sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1.1px;
+
+    text-transform:uppercase;
+
+    font-weight:400;
+}
+
+
+.stat strong{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:20px;
+
+    font-weight:400;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-box{
+
+    padding:12px 14px;
+
+    margin-bottom:10px;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.40);
+
+    backdrop-filter:blur(17px);
+
+    border:1px solid var(--line);
+
+    box-shadow:var(--shadow);
+}
+
+
+.progress-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:6px;
+}
+
+
+.progress-top strong{
+
+    font-size:11px;
+
+    font-weight:400;
+}
+
+
+.progress{
+
+    height:5px;
+
+    background:
+        rgba(115,125,115,.11);
+
+    border-radius:999px;
+
+    overflow:hidden;
+}
+
+
+.progress-fill{
+
+    height:100%;
+
+    width:0;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8d9d8d,
+            #b8c6b7,
+            #d8c6b8
+        );
+
+    transition:
+        width .5s ease;
+}
+
+
+/* =========================================
+   NEXT ACTION
+========================================= */
+
+.next-action{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 12px;
+
+    margin-bottom:10px;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.52),
+            rgba(222,232,222,.42)
+        );
+
+    backdrop-filter:blur(17px);
+
+    border:1px solid var(--line);
+
+    box-shadow:var(--shadow);
+}
+
+
+.next-action-icon{
+
+    width:30px;
+
+    height:30px;
+
+    flex:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.52);
+
+    font-size:14px;
+}
+
+
+.next-action-text{
+
+    flex:1;
+
+    min-width:0;
+}
+
+
+.next-action-text small{
+
+    display:block;
+
+    margin-bottom:2px;
+
+    color:var(--sage);
+
+    font-family:Arial,sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1.1px;
+
+    text-transform:uppercase;
+
+    font-weight:400;
+}
+
+
+.next-action-text strong{
+
+    display:block;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    text-overflow:ellipsis;
+
+    font-size:12px;
+
+    font-weight:400;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.controls{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin-bottom:10px;
+}
+
+
+.btn{
+
+    padding:7px 10px;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.43);
+
+    border:1px solid var(--line);
+
+    color:var(--ink);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:10px;
+
+    font-weight:400;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+.btn:hover{
+
+    transform:translateY(-1px);
+
+    background:
+        rgba(255,255,255,.66);
+}
+
+
+.btn.primary{
+
+    background:
+        rgba(116,132,118,.78);
+
+    color:white;
+
+    border-color:
+        rgba(255,255,255,.45);
+}
+
+
+.btn.danger{
+
+    color:#9b7169;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-row{
+
+    margin-bottom:11px;
+}
+
+
+.search{
+
+    width:100%;
+
+    padding:9px 12px;
+
+    border-radius:12px;
+
+    border:1px solid var(--line);
+
+    outline:none;
+
+    background:
+        rgba(255,255,255,.36);
+
+    backdrop-filter:blur(12px);
+
+    color:var(--ink);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:11px;
+
+    font-weight:400;
+}
+
+
+.search::placeholder{
+
+    color:#aaa69e;
+}
+
+
+/* =========================================
+   GOAL GRID
+========================================= */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+}
+
+
+/* =========================================
+   GOAL CARD
+========================================= */
+
+.card{
+
+    position:relative;
+
+    min-height:178px;
+
+    padding:13px;
+
+    border-radius:17px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.57),
+            rgba(255,255,255,.29)
+        );
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.73);
+
+    box-shadow:
+
+        0 9px 25px
+        rgba(77,67,57,.07),
+
+        inset 0 1px 0
+        rgba(255,255,255,.82);
+
+    overflow:hidden;
+
+    cursor:grab;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        opacity .2s ease;
+}
+
+
+.card:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+
+        0 14px 32px
+        rgba(77,67,57,.10),
+
+        inset 0 1px 0
+        rgba(255,255,255,.9);
+}
+
+
+/* =========================================
+   CARD SHINE
+========================================= */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-60%;
+
+    left:-120px;
+
+    width:65px;
+
+    height:220%;
+
+    transform:
+        rotate(22deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.42),
+            transparent
+        );
+
+    transition:
+        left .75s ease;
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+.card:hover::before{
+
+    left:115%;
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.card-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:9px;
+}
+
+
+.number{
+
+    width:22px;
+
+    height:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.48);
+
+    border:
+        1px solid
+        rgba(255,255,255,.7);
+
+    color:#8a8c86;
+
+    font-family:Arial,sans-serif;
+
+    font-size:7px;
+
+    font-weight:400;
+}
+
+
+.category{
+
+    padding:4px 6px;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.40);
+
+    color:#888c84;
+
+    font-family:Arial,sans-serif;
+
+    font-size:6px;
+
+    letter-spacing:.8px;
+
+    text-transform:uppercase;
+
+    font-weight:400;
+}
+
+
+/* =========================================
+   GOAL TITLE
+========================================= */
+
+.goal-title{
+
+    margin:0 0 9px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:15px;
+
+    line-height:1.25;
+
+    font-weight:400;
+
+    letter-spacing:-.15px;
+}
+
+
+/* =========================================
+   MICRO ACTION
+========================================= */
+
+.micro-label{
+
+    margin-bottom:4px;
+
+    color:#7b897d;
+
+    font-family:Arial,sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:.8px;
+
+    text-transform:uppercase;
+
+    font-weight:400;
+}
+
+
+.micro{
+
+    min-height:43px;
+
+    padding:7px 8px;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.34);
+
+    border:
+        1px solid
+        rgba(255,255,255,.55);
+
+    color:#777b75;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:10px;
+
+    line-height:1.35;
+
+    font-weight:400;
+}
+
+
+/* =========================================
+   CARD ACTIONS
+========================================= */
+
+.card-actions{
+
+    display:flex;
+
+    gap:5px;
+
+    margin-top:8px;
+}
+
+
+.card-btn{
+
+    flex:1;
+
+    padding:6px 4px;
+
+    border-radius:8px;
+
+    background:
+        rgba(255,255,255,.40);
+
+    border:
+        1px solid
+        rgba(255,255,255,.62);
+
+    color:#656b64;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:8px;
+
+    font-weight:400;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+
+.card-btn:hover{
+
+    background:
+        rgba(255,255,255,.65);
+
+    transform:translateY(-1px);
+}
+
+
+.complete-btn{
+
+    background:
+        rgba(123,143,126,.72);
+
+    color:white;
+}
+
+
+.edit-btn{
+
+    max-width:32px;
+}
+
+
+.delete-btn{
+
+    max-width:32px;
+
+    color:#9a716a;
+}
+
+
+/* =========================================
+   COMPLETED CARD
+========================================= */
+
+.card.completed{
+
+    opacity:.58;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(218,230,219,.58),
+            rgba(255,255,255,.29)
+        );
+}
+
+
+.card.completed .goal-title{
+
+    text-decoration:
+        line-through;
+
+    text-decoration-thickness:1px;
+}
+
+
+/* =========================================
+   DRAG
+========================================= */
+
+.dragging{
+
+    opacity:.28;
+
+    transform:
+        scale(.97);
+}
+
+
+.drag-over{
+
+    outline:
+        1px dashed
+        rgba(111,130,114,.65);
+
+    outline-offset:2px;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        rgba(65,59,53,.18);
+
+    backdrop-filter:blur(6px);
+
+    z-index:100;
+}
+
+
+.modal.show{
+
+    display:flex;
+}
+
+
+.modal-box{
+
+    width:min(420px,90%);
+
+    padding:22px;
+
+    border-radius:21px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    backdrop-filter:blur(22px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.85);
+
+    box-shadow:
+        0 25px 70px
+        rgba(50,40,30,.16);
+}
+
+
+.modal-box h2{
+
+    margin:0 0 17px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:22px;
+
+    font-weight:400;
+}
+
+
+.field{
+
+    margin-bottom:11px;
+}
+
+
+.field label{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    color:#81857e;
+
+    font-family:Arial,sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    font-weight:400;
+}
+
+
+.field input,
+.field textarea,
+.field select{
+
+    width:100%;
+
+    padding:9px 10px;
+
+    border-radius:10px;
+
+    border:
+        1px solid
+        rgba(120,120,110,.14);
+
+    background:
+        rgba(255,255,255,.54);
+
+    outline:none;
+
+    color:var(--ink);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:11px;
+
+    font-weight:400;
+}
+
+
+.field textarea{
+
+    min-height:70px;
+
+    resize:vertical;
+}
+
+
+.modal-actions{
+
+    display:flex;
+
+    gap:6px;
+
+    margin-top:15px;
+}
+
+
+.modal-actions button{
+
+    flex:1;
+}
+
+
+/* =========================================
+   CELEBRATION
+========================================= */
+
+.celebration{
+
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.85);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9998;
+
+    padding:25px 34px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.73);
+
+    backdrop-filter:blur(22px);
+
+    border:
+        1px solid white;
+
+    box-shadow:
+        0 25px 80px
+        rgba(50,40,30,.18);
+
+    transition:.3s ease;
+}
+
+
+.celebration.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+
+.celebration h2{
+
+    margin:0 0 5px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:25px;
+
+    font-weight:400;
+}
+
+
+.celebration p{
+
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+.confetti{
+
+    position:fixed;
+
+    top:-15px;
+
+    width:6px;
+
+    height:10px;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    font-size:10px;
+
+    animation:
+        confettiFall 1.8s
+        cubic-bezier(.2,.8,.3,1)
+        forwards;
+}
+
+
+@keyframes confettiFall{
+
+    0%{
+
+        transform:
+            translate3d(0,0,0)
+            rotate(0);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translate3d(
+                var(--x),
+                100vh,
+                0
+            )
+            rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:900px){
+
+    .grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .app{
+
+        width:94%;
+
+        padding-top:18px;
+    }
+
+
+    .brand h1{
+
+        font-size:27px;
+    }
+
+
+    .grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:7px;
+    }
+
+
+    .card{
+
+        min-height:180px;
+
+        padding:11px;
+    }
+
+
+    .goal-title{
+
+        font-size:14px;
+    }
+
+
+    .micro{
+
+        font-size:9px;
+    }
+
+}
+
+
+@media(max-width:430px){
+
+    .grid{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+
+    .stats{
+
+        gap:5px;
+    }
+
+
+    .stat{
+
+        padding:8px;
+    }
+
+
+    .stat strong{
+
+        font-size:18px;
+    }
+
+}
+
+</style>
