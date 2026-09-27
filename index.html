@@ -2,30 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>100 Goals · Ice Cream Life Reset</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>100 Goals — Life Reset</title>
 
 <style>
-
-/* =========================================================
-   ICE CREAM 100 GOALS
-========================================================= */
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap');
 
 :root{
-
   --vanilla:#fffaf2;
   --cream:#f8f0e6;
   --milk:#fffdf9;
-
-  --not-started:#e8e4e1;
-  --not-started-deep:#b2aca6;
 
   --strawberry:#efb6c4;
   --strawberry-light:#f8dce3;
@@ -37,1878 +23,1171 @@
   --lavender:#d8cee3;
   --lavender-deep:#b8a8c8;
 
+  --ice:#9bb8c9;
+  --ice-light:#dceaf1;
+  --ice-deep:#718fa1;
+
   --peach:#f3d2bd;
 
-  --ink:#625d58;
-  --muted:#a29a92;
-
-  --white-glass:rgba(255,255,255,.58);
-  --white-soft:rgba(255,255,255,.38);
+  --ink:#4f4a46;
+  --title:#403b38;
+  --muted:#8f8780;
 
   --line:rgba(255,255,255,.85);
+  --shadow:0 10px 30px rgba(90,75,70,.10);
+  --shadow-hover:0 16px 38px rgba(90,75,70,.17);
 
-  --shadow:
-    0 10px 30px rgba(120,95,90,.09);
-
-  --shadow-hover:
-    0 15px 38px rgba(120,95,90,.14);
-
-  --radius:19px;
+  --radius:20px;
 }
 
-/* =========================================================
-   BODY
-========================================================= */
+*{
+  box-sizing:border-box;
+}
 
 html{
   scroll-behavior:smooth;
 }
 
 body{
-
+  margin:0;
   min-height:100vh;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-weight:400;
-
   color:var(--ink);
+  font-family:"DM Sans",sans-serif;
 
   background:
-
-    radial-gradient(
-      circle at 10% 5%,
-      rgba(255,255,255,.9),
-      transparent 27%
-    ),
-
-    radial-gradient(
-      circle at 90% 8%,
-      rgba(248,210,222,.42),
-      transparent 25%
-    ),
-
-    radial-gradient(
-      circle at 10% 90%,
-      rgba(202,219,198,.42),
-      transparent 27%
-    ),
-
-    radial-gradient(
-      circle at 90% 85%,
-      rgba(216,206,227,.40),
-      transparent 28%
-    ),
-
-    linear-gradient(
-      135deg,
-      #f8f0e7,
-      #f6eee8,
-      #f8f2ea
-    );
-
-  background-attachment:fixed;
+    radial-gradient(circle at 10% 10%,rgba(248,220,227,.55),transparent 28%),
+    radial-gradient(circle at 90% 15%,rgba(216,206,227,.50),transparent 28%),
+    radial-gradient(circle at 50% 100%,rgba(201,216,197,.40),transparent 32%),
+    var(--vanilla);
 }
 
-/* =========================================================
-   APP
-========================================================= */
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
 
 .app{
-
-  width:min(1120px,92%);
-
+  width:min(1500px,94%);
   margin:auto;
-
-  padding:
-    28px
-    0
-    55px;
+  padding:34px 0 60px;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* ================= HEADER ================= */
 
 .header{
-
   text-align:center;
-
-  margin-bottom:18px;
+  margin-bottom:25px;
 }
 
 .eyebrow{
-
-  font-family:Arial,sans-serif;
-
-  font-size:8px;
-
+  font-size:11px;
   letter-spacing:3px;
-
-  color:var(--muted);
-
   text-transform:uppercase;
-
-  margin-bottom:7px;
+  color:var(--muted);
+  margin-bottom:5px;
 }
 
 h1{
-
-  font-size:33px;
-
-  font-weight:400;
-
-  letter-spacing:.2px;
-
-  color:#625c58;
+  margin:0;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(48px,6vw,78px);
+  line-height:.9;
+  font-weight:500;
+  color:#514a45;
 }
 
 .subtitle{
-
-  margin-top:5px;
-
+  margin:12px auto 0;
+  max-width:620px;
+  font-size:13px;
   color:var(--muted);
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-panel{
+  position:relative;
+  overflow:hidden;
+
+  background:rgba(255,255,255,.52);
+  border:1px solid rgba(255,255,255,.9);
+  backdrop-filter:blur(16px);
+
+  border-radius:26px;
+  padding:20px 22px;
+  margin-bottom:18px;
+
+  box-shadow:var(--shadow);
+}
+
+.progress-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.progress-number{
+  font-family:"Cormorant Garamond",serif;
+  font-size:42px;
+  line-height:1;
+  color:#514943;
+}
+
+.progress-meta{
+  text-align:right;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.progress-track{
+  height:10px;
+  margin-top:15px;
+  border-radius:20px;
+  background:rgba(190,180,175,.20);
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--strawberry),
+      var(--lavender),
+      var(--pistachio)
+    );
+
+  transition:width .5s ease;
+}
+
+/* ================= NEXT ACTION ================= */
+
+.next-action{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:17px;
+
+  margin-bottom:20px;
+  padding:17px 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.72),
+      rgba(255,245,247,.62)
+    );
+
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+}
+
+.next-icon{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+  background:var(--strawberry-light);
+  font-size:21px;
+}
+
+.next-label{
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--strawberry-deep);
+  margin-bottom:3px;
+}
+
+.next-title{
+  font-family:"Cormorant Garamond",serif;
+  font-size:22px;
+  color:var(--title);
+}
+
+.next-micro{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+.next-button{
+  border:0;
+  padding:9px 14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.7);
+  color:#766d68;
+  font-size:11px;
+  transition:.2s;
+}
+
+.next-button:hover{
+  transform:translateY(-1px);
+  background:white;
+}
+
+/* ================= CONTROLS ================= */
+
+.controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.search{
+  flex:1 1 220px;
+  min-width:190px;
+
+  border:1px solid rgba(255,255,255,.9);
+  background:rgba(255,255,255,.58);
+
+  border-radius:15px;
+  padding:11px 15px;
+
+  outline:none;
+  color:var(--ink);
+  box-shadow:var(--shadow);
+}
+
+.search::placeholder{
+  color:#aaa19a;
+}
+
+.filter-btn,
+.add-btn,
+.reset-btn{
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:15px;
+  padding:10px 14px;
+
+  background:rgba(255,255,255,.58);
+  color:#746b66;
+
+  transition:.2s;
+}
+
+.filter-btn:hover,
+.add-btn:hover,
+.reset-btn:hover{
+  transform:translateY(-1px);
+  background:white;
+}
+
+.filter-btn.active{
+  background:#fff;
+  box-shadow:0 5px 16px rgba(100,80,80,.10);
+  color:#514a45;
+}
+
+.add-btn{
+  background:var(--strawberry-light);
+  color:#8f596a;
+}
+
+.reset-btn{
+  font-size:11px;
+}
+
+/* ================= LEGEND ================= */
+
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  margin-bottom:16px;
+  padding-left:3px;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:10px;
+  color:#89817b;
+}
+
+.legend-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+}
+
+.legend-frozen{
+  background:#9bb8c9;
+}
+
+.legend-progress{
+  background:#efb6c4;
+}
+
+.legend-done{
+  background:#d8cee3;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+  position:relative;
+  min-width:0;
+  overflow:hidden;
+
+  min-height:215px;
+  padding:19px 17px 17px;
+
+  border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,.9);
+
+  background:rgba(255,255,255,.56);
+
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+
+  cursor:pointer;
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    opacity .22s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-hover);
+}
+
+.card.dragging{
+  opacity:.4;
+  transform:scale(.97);
+}
+
+.card.drag-over{
+  outline:2px dashed rgba(150,130,120,.45);
+  outline-offset:3px;
+}
+
+/* shine */
+
+.card::after{
+  content:"";
+  position:absolute;
+  top:-70px;
+  right:-70px;
+  width:150px;
+  height:150px;
+
+  background:radial-gradient(
+    circle,
+    rgba(255,255,255,.58),
+    transparent 65%
+  );
+
+  pointer-events:none;
+}
+
+/* status strip */
+
+.status-strip{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:7px;
+  background:#ddd;
+}
+
+/* FROZEN */
+
+.card.status-frozen{
+  background:
+    linear-gradient(
+      145deg,
+      rgba(155,184,201,.94),
+      rgba(191,213,224,.82)
+    );
+
+  border-color:rgba(142,174,192,.85);
+
+  box-shadow:
+    0 10px 30px rgba(112,145,164,.20),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.card.status-frozen .status-strip{
+  background:
+    linear-gradient(
+      90deg,
+      #9bb8c9,
+      #718fa1
+    );
+}
+
+/* IN PROGRESS */
+
+.card.status-progress{
+  background:
+    linear-gradient(
+      145deg,
+      rgba(248,220,227,.91),
+      rgba(255,241,243,.75)
+    );
+}
+
+.card.status-progress .status-strip{
+  background:
+    linear-gradient(
+      90deg,
+      #efb6c4,
+      #d98fa4
+    );
+}
+
+/* DONE */
+
+.card.status-done{
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,206,227,.90),
+      rgba(238,232,244,.72)
+    );
+  opacity:.88;
+}
+
+.card.status-done .status-strip{
+  background:
+    linear-gradient(
+      90deg,
+      #d8cee3,
+      #b8a8c8
+    );
+}
+
+/* card top */
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:13px;
+}
+
+.card-number{
+  font-size:10px;
+  letter-spacing:1px;
+  color:#827a74;
+}
+
+.category{
+  font-size:8px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:#847a74;
+  background:rgba(255,255,255,.43);
+  padding:5px 7px;
+  border-radius:8px;
+}
+
+/* STATUS LABEL */
+
+.status-label{
+  display:inline-flex;
+  align-items:center;
+
+  font-size:9px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+
+  padding:5px 8px;
+  border-radius:9px;
+
+  margin-bottom:9px;
+}
+
+.status-frozen .status-label{
+  color:#405967;
+  background:rgba(255,255,255,.50);
+  border:1px solid rgba(255,255,255,.68);
+}
+
+.status-progress .status-label{
+  color:#94576a;
+  background:rgba(255,255,255,.48);
+}
+
+.status-done .status-label{
+  color:#71647c;
+  background:rgba(255,255,255,.48);
+}
+
+/* ================= GOAL TITLE ================= */
+
+/*
+   Stronger contrast so the task name doesn't disappear
+   into the pastel card.
+*/
+
+.goal-title{
+  position:relative;
+  z-index:2;
+
+  margin:0;
+
+  font-family:"Cormorant Garamond",serif;
+  font-size:24px;
+  line-height:1.02;
+  font-weight:600;
+
+  color:#403b38;
+
+  letter-spacing:.05px;
+
+  max-width:94%;
+}
+
+.status-frozen .goal-title{
+  color:#263f4d;
+}
+
+.status-progress .goal-title{
+  color:#593f48;
+}
+
+.status-done .goal-title{
+  color:#554b5c;
+  text-decoration:line-through;
+  text-decoration-thickness:1px;
+  text-decoration-color:rgba(85,75,92,.45);
+}
+
+/* ================= MICRO ACTION ================= */
+
+.micro{
+  margin-top:13px;
+  padding:9px 10px;
+
+  border-radius:11px;
+
+  font-size:10px;
+  line-height:1.4;
+
+  color:#756d67;
+
+  background:rgba(255,255,255,.38);
+  border:1px solid rgba(255,255,255,.52);
+}
+
+.micro-label{
+  display:block;
+  font-size:8px;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  margin-bottom:3px;
+  color:#918780;
+}
+
+.status-frozen .micro{
+  color:#4f6673;
+  background:rgba(255,255,255,.30);
+  border-color:rgba(255,255,255,.58);
+}
+
+.status-frozen .micro-label{
+  color:#4c6877;
+}
+
+/* ================= ICONS ================= */
+
+.card-actions{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+
+  display:flex;
+  gap:4px;
+
+  opacity:0;
+  transition:.2s;
+}
+
+.card:hover .card-actions{
+  opacity:1;
+}
+
+.icon-btn{
+  width:26px;
+  height:26px;
+
+  display:grid;
+  place-items:center;
+
+  border:0;
+  border-radius:8px;
+
+  background:rgba(255,255,255,.66);
+  color:#766d67;
 
   font-size:12px;
 }
 
-/* =========================================================
-   STATS
-========================================================= */
-
-.stats{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:9px;
-
-  margin-bottom:11px;
-}
-
-.stat{
-
-  padding:10px 12px;
-
-  border-radius:16px;
-
-  border:1px solid var(--line);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.68),
-      rgba(255,255,255,.36)
-    );
-
-  backdrop-filter:blur(18px);
-
-  box-shadow:var(--shadow);
-
-  text-align:center;
-}
-
-.stat-number{
-
-  font-size:21px;
-
-  font-weight:400;
-}
-
-.stat-label{
-
-  margin-top:2px;
-
-  font-family:Arial,sans-serif;
-
-  font-size:7px;
-
-  letter-spacing:1.6px;
-
-  color:var(--muted);
-
-  text-transform:uppercase;
-}
-
-/* =========================================================
-   PROGRESS
-========================================================= */
-
-.progress-wrap{
-
-  margin-bottom:13px;
-}
-
-.progress-info{
-
-  display:flex;
-
-  justify-content:space-between;
-
-  margin-bottom:5px;
-
-  color:var(--muted);
-
-  font-size:9px;
-}
-
-.progress{
-
-  height:7px;
-
-  overflow:hidden;
-
-  border-radius:20px;
-
-  background:
-    rgba(255,255,255,.5);
-
-  border:1px solid rgba(255,255,255,.8);
-}
-
-.progress-bar{
-
-  width:0%;
-
-  height:100%;
-
-  border-radius:20px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #d9b5c2,
-      #e8a9bb,
-      #c8b6d7
-    );
-
-  transition:
-    width .4s ease;
-}
-
-/* =========================================================
-   NEXT ACTION
-========================================================= */
-
-.next-action{
-
-  position:relative;
-
-  overflow:hidden;
-
-  padding:12px 14px;
-
-  margin-bottom:12px;
-
-  border-radius:17px;
-
-  border:1px solid var(--line);
-
-  background:
-
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.70),
-      rgba(249,221,228,.28),
-      rgba(217,228,214,.25)
-    );
-
-  backdrop-filter:blur(20px);
-
-  box-shadow:var(--shadow);
-}
-
-.next-action:after{
-
-  content:"";
-
-  position:absolute;
-
-  width:35%;
-
-  height:250%;
-
-  left:-25%;
-
-  top:-75%;
-
-  transform:rotate(25deg);
-
-  background:
-    rgba(255,255,255,.20);
-
-  pointer-events:none;
-}
-
-.next-label{
-
-  font-family:Arial,sans-serif;
-
-  font-size:7px;
-
-  letter-spacing:1.7px;
-
-  color:#a88491;
-
-  text-transform:uppercase;
-}
-
-.next-text{
-
-  margin-top:5px;
-
-  font-size:14px;
-
-  line-height:1.4;
-}
-
-.next-text .goal-name{
-
-  color:#71666a;
-
-  font-weight:600;
-}
-
-.next-text .micro-action{
-
-  color:var(--muted);
-}
-
-/* =========================================================
-   CONTROLS
-========================================================= */
-
-.controls{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:6px;
-
-  margin-bottom:12px;
-}
-
-button,
-input{
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-weight:400;
-}
-
-button{
-
-  cursor:pointer;
-}
-
-.btn{
-
-  border:1px solid var(--line);
-
-  border-radius:11px;
-
-  padding:7px 11px;
-
-  font-size:9px;
-
-  color:var(--ink);
-
-  background:
-    rgba(255,255,255,.48);
-
-  box-shadow:
-    0 4px 12px rgba(100,80,70,.05);
-
-  transition:
-    transform .18s ease,
-    background .18s ease;
-}
-
-.btn:hover{
-
-  transform:translateY(-1px);
-
-  background:
-    rgba(255,255,255,.75);
-}
-
-.btn.primary{
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(245,190,205,.55),
-      rgba(222,211,231,.45)
-    );
-}
-
-.search{
-
-  flex:1;
-
-  min-width:160px;
-
-  border:1px solid var(--line);
-
-  border-radius:11px;
-
-  padding:7px 11px;
-
-  outline:none;
-
-  color:var(--ink);
-
-  background:
-    rgba(255,255,255,.45);
-}
-
-.search::placeholder{
-
-  color:#aaa29b;
-}
-
-/* =========================================================
-   STATUS LEGEND
-========================================================= */
-
-.legend{
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  flex-wrap:wrap;
-
-  gap:8px;
-
-  margin-bottom:12px;
-
-  font-family:Arial,sans-serif;
-
-  font-size:7px;
-
-  letter-spacing:.7px;
-
-  color:var(--muted);
-
-  text-transform:uppercase;
-}
-
-.legend-item{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:4px;
-}
-
-.legend-dot{
-
-  width:9px;
-
-  height:9px;
-
-  border-radius:50%;
-
-  border:1px solid rgba(255,255,255,.9);
-}
-
-.legend-notstarted{
-  background:#d5d0cb;
-}
-
-.legend-frozen{
-  background:#d9e0d7;
-}
-
-.legend-progress{
-  background:#efb2c2;
-}
-
-.legend-done{
-  background:#c8b5d7;
-}
-
-/* =========================================================
-   GRID
-========================================================= */
-
-.grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:9px;
-}
-
-/* =========================================================
-   CARD
-========================================================= */
-
-.card{
-
-  position:relative;
-
-  min-height:185px;
-
-  padding:13px;
-
-  overflow:hidden;
-
-  border-radius:19px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.86);
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.64),
-      rgba(255,255,255,.32)
-    );
-
-  backdrop-filter:blur(20px);
-
-  box-shadow:
-    0 9px 27px rgba(110,88,80,.075),
-    inset 0 1px 0 rgba(255,255,255,.9);
-
-  cursor:grab;
-
-  user-select:none;
-
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease,
-    opacity .2s ease,
-    background .25s ease;
-}
-
-.card:active{
-
-  cursor:grabbing;
-}
-
-/* glossy moving shine */
-
-.card:before{
-
-  content:"";
-
-  position:absolute;
-
-  pointer-events:none;
-
-  top:-90%;
-
-  left:-40%;
-
-  width:40%;
-
-  height:270%;
-
-  transform:rotate(25deg);
-
-  background:
-    rgba(255,255,255,.25);
-
-  transition:
-    left .65s ease;
-}
-
-.card:hover:before{
-
-  left:110%;
-}
-
-.card:hover{
-
-  transform:translateY(-2px);
-
-  box-shadow:
-    var(--shadow-hover),
-    inset 0 1px 0 rgba(255,255,255,.95);
-}
-
-.card.dragging{
-
-  opacity:.45;
-
-  transform:
-    scale(.97)
-    rotate(1deg);
-}
-
-/* =========================================================
-   NOT STARTED (AESTHETIC GREY)
-========================================================= */
-
-.card.status-notstarted{
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(235,232,229,.72),
-      rgba(255,255,255,.34)
-    );
-
-  border-color:
-    rgba(220,215,210,.7);
-}
-
-.card.status-notstarted
-.goal-title{
-
-  color:#9bb8c9;
-}
-
-.card.status-notstarted
-.micro{
-
-  background:
-    rgba(225,220,215,.35);
-}
-
-.card.status-notstarted
-.status-strip{
-
-  background:
-    linear-gradient(
-      90deg,
-      #d0cac4,
-      #ded8d2
-    );
-}
-
-/* =========================================================
-   FROZEN
-========================================================= */
-
-.card.status-frozen{
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(232,238,229,.70),
-      rgba(255,255,255,.34)
-    );
-}
-
-.card.status-frozen
-.goal-title{
-
-  color:#777c75;
-}
-
-.card.status-frozen
-.micro{
-
-  background:
-    rgba(217,225,215,.30);
-}
-
-/* =========================================================
-   IN PROGRESS
-========================================================= */
-
-.card.status-progress{
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(255,224,232,.76),
-      rgba(255,255,255,.36)
-    );
-
-  border-color:
-    rgba(240,180,195,.65);
-
-  box-shadow:
-    0 10px 30px rgba(220,155,175,.13),
-    inset 0 1px 0 rgba(255,255,255,.9);
-}
-
-.card.status-progress
-.micro{
-
-  background:
-    rgba(255,214,225,.34);
-}
-
-.card.status-progress
-.status-strip{
-
-  background:
-    linear-gradient(
-      90deg,
-      #efb0c2,
-      #f4c4d0
-    );
-}
-
-/* =========================================================
-   DONE
-========================================================= */
-
-.card.status-done{
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(224,215,235,.70),
-      rgba(255,255,255,.38)
-    );
-
-  border-color:
-    rgba(198,181,216,.55);
-
-  box-shadow:
-    0 10px 30px rgba(165,145,190,.12),
-    inset 0 1px 0 rgba(255,255,255,.9);
-}
-
-.card.status-done
-.goal-title{
-
-  color:#8b8190;
-
-  text-decoration:
-    line-through;
-
-  text-decoration-thickness:1px;
-
-  opacity:.7;
-}
-
-.card.status-done
-.micro{
-
-  background:
-    rgba(215,207,226,.30);
-}
-
-/* =========================================================
-   THICK STATUS BAR
-========================================================= */
-
-.status-strip{
-
-  position:absolute;
-
-  top:0;
-
-  left:0;
-
-  right:0;
-
-  height:5px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #cfd9cb,
-      #dce5d8
-    );
-
-  transition:
-    background .25s ease;
-}
-
-/* =========================================================
-   CARD TOP
-========================================================= */
-
-.card-top{
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  margin-bottom:8px;
-}
-
-.number{
-
-  font-family:Arial,sans-serif;
-
-  font-size:8px;
-
-  letter-spacing:1px;
-
-  color:#aaa29c;
-}
-
-.category{
-
-  font-family:Arial,sans-serif;
-
-  font-size:7px;
-
-  letter-spacing:1px;
-
-  text-transform:uppercase;
-
-  color:#a19a94;
-}
-
-/* =========================================================
-   STATUS LABEL
-========================================================= */
-
-.status-label{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:4px;
-
-  margin-bottom:6px;
-
-  padding:3px 7px;
-
-  border-radius:20px;
-
-  font-family:Arial,sans-serif;
-
-  font-size:7px;
-
-  letter-spacing:.6px;
-
-  color:#817873;
-
-  background:
-    rgba(255,255,255,.42);
-
-  border:
-    1px solid
-    rgba(255,255,255,.72);
-}
-
-.status-notstarted
-.status-label{
-
-  color:#8a837c;
-
-  background:
-    rgba(220,215,210,.45);
-}
-
-.status-progress
-.status-label{
-
-  color:#b26f83;
-
-  background:
-    rgba(255,193,207,.35);
-}
-
-.status-done
-.status-label{
-
-  color:#89799a;
-
-  background:
-    rgba(214,202,228,.42);
-}
-
-/* =========================================================
-   GOAL TITLE
-========================================================= */
-
-.goal-title{
-
-  min-height:36px;
-
-  font-size:15px;
-
-  line-height:1.28;
-
-  font-weight:400;
-
-  color:#635e59;
-}
-
-/* =========================================================
-   MICRO ACTION
-========================================================= */
-
-.micro{
-
-  min-height:45px;
-
-  margin-top:8px;
-
-  padding:7px 8px;
-
-  border-radius:11px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.65);
-
-  background:
-    rgba(255,255,255,.28);
-
-  font-size:10px;
-
-  line-height:1.35;
-
-  color:#85807a;
-}
-
-.micro-label{
-
-  display:block;
-
-  margin-bottom:2px;
-
-  font-family:Arial,sans-serif;
-
-  font-size:7px;
-
-  letter-spacing:1px;
-
-  color:#a0838e;
-
-  text-transform:uppercase;
-}
-
-/* =========================================================
-   CARD BOTTOM
-========================================================= */
-
-.card-bottom{
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  margin-top:9px;
-}
-
-.hint{
-
-  font-family:Arial,sans-serif;
-
-  font-size:6.5px;
-
-  letter-spacing:.7px;
-
-  color:#aaa29d;
-
-  text-transform:uppercase;
-}
-
-.icon-actions{
-
-  display:flex;
-
-  gap:4px;
-}
-
-.icon-btn{
-
-  width:24px;
-
-  height:22px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border:
-    1px solid
-    rgba(255,255,255,.72);
-
-  border-radius:8px;
-
-  background:
-    rgba(255,255,255,.38);
-
-  color:#807974;
-
-  font-size:10px;
-
-  cursor:pointer;
-
-  transition:.18s ease;
-}
-
 .icon-btn:hover{
-
-  transform:translateY(-1px);
-
-  background:
-    rgba(255,255,255,.72);
+  background:white;
 }
 
-.icon-btn.delete{
-
-  color:#aa8589;
-}
-
-/* =========================================================
-   HIGHLIGHT NEXT ACTION
-========================================================= */
-
-.card.highlight{
-
-  animation:
-    highlightCard 1.3s ease;
-}
-
-@keyframes highlightCard{
-
-  0%,100%{
-
-    transform:translateY(0);
-
-    box-shadow:
-      0 9px 27px rgba(110,88,80,.075);
-  }
-
-  45%{
-
-    transform:
-      scale(1.035)
-      translateY(-4px);
-
-    box-shadow:
-      0 0 0 5px
-      rgba(239,180,197,.25),
-
-      0 20px 45px
-      rgba(120,90,100,.16);
-  }
-}
-
-/* =========================================================
-   EMPTY
-========================================================= */
-
-.empty{
-
-  grid-column:1/-1;
-
-  padding:50px;
-
-  text-align:center;
-
-  color:var(--muted);
-
-  font-size:14px;
-}
-
-/* =========================================================
-   MODAL
-========================================================= */
+/* ================= MODAL ================= */
 
 .modal{
-
   position:fixed;
-
   inset:0;
-
   z-index:100;
 
   display:none;
-
   align-items:center;
-
   justify-content:center;
 
   padding:20px;
 
-  background:
-    rgba(75,65,60,.16);
-
-  backdrop-filter:blur(10px);
+  background:rgba(70,60,55,.24);
+  backdrop-filter:blur(7px);
 }
 
 .modal.show{
-
   display:flex;
 }
 
 .modal-box{
-
   width:min(460px,100%);
+  max-height:90vh;
+  overflow:auto;
 
-  padding:23px;
+  background:rgba(255,253,249,.94);
+  border:1px solid white;
 
-  border-radius:22px;
+  border-radius:26px;
+  padding:25px;
 
-  border:
-    1px solid
-    rgba(255,255,255,.88);
+  box-shadow:0 25px 70px rgba(60,50,45,.22);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,252,247,.96),
-      rgba(250,238,237,.94)
-    );
+  animation:modalIn .22s ease;
+}
 
-  box-shadow:
-    0 30px 80px
-    rgba(70,55,50,.18);
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
 }
 
 .modal-title{
+  margin:0 0 18px;
 
-  margin-bottom:16px;
-
-  font-size:22px;
-
-  font-weight:400;
-}
-
-.field{
-
-  margin-bottom:11px;
-}
-
-.field label{
-
-  display:block;
-
-  margin-bottom:4px;
-
-  font-family:Arial,sans-serif;
-
-  font-size:7px;
-
-  letter-spacing:1.2px;
-
-  color:var(--muted);
-
-  text-transform:uppercase;
-}
-
-.field input{
-
-  width:100%;
-
-  padding:9px 10px;
-
-  border:
-    1px solid
-    rgba(190,180,175,.35);
-
-  border-radius:10px;
-
-  outline:none;
-
-  color:var(--ink);
-
-  background:
-    rgba(255,255,255,.62);
-}
-
-.field input:focus{
-
-  border-color:
-    rgba(225,160,180,.55);
-
-  box-shadow:
-    0 0 0 3px
-    rgba(240,190,205,.16);
-}
-
-.modal-actions{
-
-  display:flex;
-
-  justify-content:flex-end;
-
-  gap:6px;
-
-  margin-top:15px;
-}
-
-/* =========================================================
-   STATUS MODAL
-========================================================= */
-
-.status-modal{
-
-  width:min(390px,100%);
-
-  padding:23px;
-
-  border-radius:22px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.88);
-
-  background:
-    rgba(255,250,246,.96);
-
-  box-shadow:
-    0 30px 80px
-    rgba(70,55,50,.18);
-
-  text-align:center;
-}
-
-.status-modal-title{
-
-  font-size:20px;
-
-  margin-bottom:5px;
-}
-
-.status-modal-subtitle{
-
-  color:var(--muted);
-
-  font-size:11px;
-
-  margin-bottom:15px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:30px;
+  font-weight:500;
+  color:#514943;
 }
 
 .status-options{
-
   display:grid;
-
-  gap:7px;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
 }
 
 .status-option{
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:15px;
+  padding:14px 7px;
 
-  padding:11px;
+  background:#f7f3ed;
+  color:#6f6761;
 
-  border-radius:13px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.8);
-
-  background:
-    rgba(255,255,255,.55);
-
-  font-size:12px;
-
-  cursor:pointer;
-
-  transition:.18s ease;
+  transition:.2s;
 }
 
 .status-option:hover{
-
-  transform:translateY(-1px);
-
-  background:
-    rgba(255,255,255,.8);
-}
-
-.status-option.notstarted{
-
-  background:
-    rgba(228,223,219,.5);
+  transform:translateY(-2px);
 }
 
 .status-option.frozen{
-
-  background:
-    rgba(215,226,212,.45);
+  background:#9bb8c9;
+  color:#304a58;
 }
 
 .status-option.progress{
-
-  background:
-    rgba(249,190,205,.48);
+  background:#f3c3cf;
+  color:#754b5a;
 }
 
 .status-option.done{
-
-  background:
-    rgba(216,205,228,.48);
+  background:#d8cee3;
+  color:#665970;
 }
 
-/* =========================================================
-   CELEBRATION
-========================================================= */
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-label{
+  display:block;
+  margin-bottom:6px;
+
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+
+  color:#8c827b;
+}
+
+.form-input,
+.form-textarea,
+.form-select{
+  width:100%;
+
+  border:1px solid #e7ded6;
+  border-radius:13px;
+
+  padding:11px 12px;
+
+  outline:none;
+
+  color:#514943;
+  background:#fffdf9;
+}
+
+.form-textarea{
+  min-height:85px;
+  resize:vertical;
+}
+
+.modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:18px;
+}
+
+.modal-btn{
+  border:0;
+  border-radius:13px;
+  padding:10px 15px;
+}
+
+.cancel-btn{
+  background:#f1ece7;
+  color:#746b65;
+}
+
+.save-btn{
+  background:var(--strawberry-light);
+  color:#805365;
+}
+
+/* ================= CELEBRATION ================= */
 
 .celebration{
-
   position:fixed;
-
   inset:0;
-
   z-index:200;
 
   display:none;
-
-  align-items:center;
-
-  justify-content:center;
+  place-items:center;
 
   pointer-events:none;
 }
 
 .celebration.show{
-
-  display:flex;
+  display:grid;
 }
 
-.celebration-box{
-
-  padding:
-    31px
-    42px;
+.celebration-message{
+  padding:22px 32px;
 
   border-radius:25px;
 
-  border:
-    1px solid
-    rgba(255,255,255,.9);
+  background:rgba(255,253,249,.94);
+  border:1px solid white;
 
-  background:
-    rgba(255,249,246,.94);
-
-  backdrop-filter:blur(20px);
+  box-shadow:0 20px 70px rgba(80,60,60,.20);
 
   text-align:center;
 
-  box-shadow:
-    0 30px 90px
-    rgba(80,60,60,.20);
-
-  animation:
-    pop .5s ease;
+  animation:celebrateIn .5s ease;
 }
 
-.celebration-box h2{
+.celebration-message h2{
+  margin:0;
 
-  font-size:30px;
-
-  font-weight:400;
+  font-family:"Cormorant Garamond",serif;
+  font-size:42px;
+  font-weight:500;
+  color:#574c55;
 }
 
-.celebration-box p{
-
-  margin-top:7px;
-
-  color:var(--muted);
-
-  font-size:13px;
+.celebration-message p{
+  margin:4px 0 0;
+  color:#8d827b;
+  font-size:12px;
 }
 
-@keyframes pop{
-
+@keyframes celebrateIn{
   0%{
-    transform:scale(.7);
+    transform:scale(.6);
     opacity:0;
   }
-
   70%{
     transform:scale(1.05);
   }
-
   100%{
     transform:scale(1);
     opacity:1;
   }
 }
 
-/* =========================================================
-   CONFETTI
-========================================================= */
+/* ================= CONFETTI ================= */
 
 .confetti{
-
   position:fixed;
-
   z-index:300;
 
-  width:7px;
-
-  height:11px;
+  width:8px;
+  height:13px;
 
   pointer-events:none;
 
-  animation:
-    fall 1.9s
-    ease-out
-    forwards;
+  animation:fall linear forwards;
 }
 
 @keyframes fall{
-
   0%{
-
-    transform:
-      translate(0,0)
-      rotate(0deg);
-
+    transform:translate3d(0,-30px,0) rotate(0);
     opacity:1;
   }
 
   100%{
-
-    transform:
-      translate(var(--x),var(--y))
-      rotate(720deg);
-
+    transform:translate3d(var(--x),110vh,0) rotate(720deg);
     opacity:0;
   }
 }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* ================= EMPTY ================= */
 
-@media(max-width:950px){
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:60px 20px;
+  color:#99908a;
+}
 
+.empty-title{
+  font-family:"Cormorant Garamond",serif;
+  font-size:30px;
+  color:#6f6660;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1150px){
   .grid{
-
-    grid-template-columns:
-      repeat(3,1fr);
+    grid-template-columns:repeat(3,minmax(0,1fr));
   }
 }
 
-@media(max-width:700px){
-
+@media(max-width:780px){
   .app{
-
     width:94%;
-
-    padding-top:20px;
-  }
-
-  h1{
-
-    font-size:27px;
+    padding-top:25px;
   }
 
   .grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
-  .card{
+  .next-action{
+    grid-template-columns:auto 1fr;
+  }
 
-    min-height:180px;
+  .next-button{
+    grid-column:2;
+    justify-self:start;
   }
 }
 
-@media(max-width:470px){
-
-  .stats{
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap:5px;
-  }
-
-  .stat{
-
-    padding:
-      9px
-      5px;
-  }
-
-  .stat-number{
-
-    font-size:18px;
-  }
-
+@media(max-width:520px){
   .grid{
-
     grid-template-columns:1fr;
   }
 
+  h1{
+    font-size:55px;
+  }
+
+  .progress-top{
+    align-items:flex-end;
+  }
+
   .controls{
-
-    display:grid;
-
-    grid-template-columns:
-      repeat(2,1fr);
+    align-items:stretch;
   }
 
   .search{
+    flex-basis:100%;
+  }
 
-    grid-column:
-      1/-1;
+  .filter-btn,
+  .add-btn,
+  .reset-btn{
+    flex:1;
+  }
+
+  .status-options{
+    grid-template-columns:1fr;
+  }
+
+  .goal-title{
+    font-size:26px;
+  }
+
+  .card-actions{
+    opacity:1;
   }
 }
-
 </style>
 </head>
-
 
 <body>
 
 <div class="app">
 
-  <!-- HEADER -->
-
   <header class="header">
-
-    <div class="eyebrow">
-      life reset · 100 goals
+    <div class="eyebrow">Life Reset · 2026</div>
+    <h1>100 Goals</h1>
+    <div class="subtitle">
+      One hundred small moves toward the life you actually want.
     </div>
-
-    <h1>
-      My 100 Goals
-    </h1>
-
-    <p class="subtitle">
-      dream it · move it · become it
-    </p>
-
   </header>
 
+  <section class="progress-panel">
 
-  <!-- STATS -->
+    <div class="progress-top">
 
-  <section class="stats">
-
-    <div class="stat">
-
-      <div
-        class="stat-number"
-        id="notStartedCount">
-        0
+      <div>
+        <div class="progress-number" id="percentage">0%</div>
       </div>
 
-      <div class="stat-label">
-        Not Started
+      <div class="progress-meta">
+        <div><span id="doneCount">0</span> / <span id="totalCount">100</span> done</div>
+        <div><span id="progressCount">0</span> in progress</div>
       </div>
 
     </div>
 
-    <div class="stat">
-
-      <div
-        class="stat-number"
-        id="progressCount">
-        0
-      </div>
-
-      <div class="stat-label">
-        In Progress
-      </div>
-
-    </div>
-
-    <div class="stat">
-
-      <div
-        class="stat-number"
-        id="completedCount">
-        0
-      </div>
-
-      <div class="stat-label">
-        Done
-      </div>
-
-    </div>
-
-    <div class="stat">
-
-      <div
-        class="stat-number"
-        id="percentage">
-        0%
-      </div>
-
-      <div class="stat-label">
-        Complete
-      </div>
-
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
     </div>
 
   </section>
-
-
-  <!-- PROGRESS -->
-
-  <section class="progress-wrap">
-
-    <div class="progress-info">
-
-      <span>
-        100 goal journey
-      </span>
-
-      <span id="progressText">
-        0 / 100
-      </span>
-
-    </div>
-
-    <div class="progress">
-
-      <div
-        class="progress-bar"
-        id="progressBar">
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- NEXT ACTION -->
 
   <section class="next-action">
 
-    <div class="next-label">
-      🎯 Next Action Step · ADHD Micro-Move
+    <div class="next-icon">→</div>
+
+    <div>
+      <div class="next-label">ADHD Micro-Move</div>
+      <div class="next-title" id="nextTitle">
+        Choose one goal to start.
+      </div>
+      <div class="next-micro" id="nextMicro">
+        Your smallest next action will appear here.
+      </div>
     </div>
 
-    <div
-      class="next-text"
-      id="nextActionText">
-
-      Click “Next Action” and I'll give you
-      one tiny thing to do.
-
-    </div>
+    <button class="next-button" onclick="nextAction()">
+      Show me
+    </button>
 
   </section>
-
-
-  <!-- CONTROLS -->
 
   <div class="controls">
 
     <input
-      class="search"
       id="search"
-      type="text"
-      placeholder="search your goals..."
+      class="search"
+      type="search"
+      placeholder="Search your goals..."
       oninput="render()"
     >
 
-    <button
-      class="btn primary"
-      onclick="nextAction()">
-
-      🎯 Next Action
-
-    </button>
-
-    <button
-      class="btn"
-      onclick="openAddModal()">
-
-      + Add Goal
-
-    </button>
-
-    <button
-      class="btn"
-      onclick="setFilter('all')">
-
+    <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">
       All
-
     </button>
 
-    <button
-      class="btn"
-      onclick="setFilter('notstarted')">
-
-      ☁️ Not Started
-
-    </button>
-
-    <button
-      class="btn"
-      onclick="setFilter('frozen')">
-
+    <button class="filter-btn" data-filter="frozen" onclick="setFilter('frozen',this)">
       ❄️ Frozen
-
     </button>
 
-    <button
-      class="btn"
-      onclick="setFilter('progress')">
-
+    <button class="filter-btn" data-filter="progress" onclick="setFilter('progress',this)">
       💎 In Progress
-
     </button>
 
-    <button
-      class="btn"
-      onclick="setFilter('done')">
-
+    <button class="filter-btn" data-filter="done" onclick="setFilter('done',this)">
       ✨ Done
-
     </button>
 
-    <button
-      class="btn"
-      onclick="resetEverything()">
+    <button class="add-btn" onclick="openAddModal()">
+      + Add Goal
+    </button>
 
-      Reset
-
+    <button class="reset-btn" onclick="resetEverything()">
+      Reset 100
     </button>
 
   </div>
-
-
-  <!-- LEGEND -->
 
   <div class="legend">
 
     <div class="legend-item">
-
-      <span class="legend-dot legend-notstarted"></span>
-
-      Not Started
-
-    </div>
-
-    <div class="legend-item">
-
       <span class="legend-dot legend-frozen"></span>
-
       Frozen
-
     </div>
 
     <div class="legend-item">
-
       <span class="legend-dot legend-progress"></span>
-
       In Progress
-
     </div>
 
     <div class="legend-item">
-
       <span class="legend-dot legend-done"></span>
-
       Done
-
     </div>
 
     <div class="legend-item">
+      Drag cards to reorder
+    </div>
 
-      click card → change status
+  </div>
+
+  <main class="grid" id="grid"></main>
+
+</div>
+
+
+<!-- STATUS MODAL -->
+
+<div class="modal" id="statusModal">
+
+  <div class="modal-box">
+
+    <h2 class="modal-title">Change status</h2>
+
+    <div class="status-options">
+
+      <button class="status-option frozen" onclick="chooseStatus('frozen')">
+        ❄️<br>Frozen
+      </button>
+
+      <button class="status-option progress" onclick="chooseStatus('progress')">
+        💎<br>In Progress
+      </button>
+
+      <button class="status-option done" onclick="chooseStatus('done')">
+        ✨<br>Done
+      </button>
 
     </div>
 
   </div>
 
-
-  <!-- GOALS -->
-
-  <main
-    class="grid"
-    id="goalGrid">
-  </main>
-
 </div>
 
 
-<!-- =======================================================
-     EDIT MODAL
-======================================================= -->
+<!-- EDIT MODAL -->
 
-<div
-  class="modal"
-  id="editModal">
+<div class="modal" id="editModal">
 
   <div class="modal-box">
 
-    <div
-      class="modal-title"
-      id="modalTitle">
-
+    <h2 class="modal-title" id="editModalTitle">
       Edit Goal
+    </h2>
 
-    </div>
+    <div class="form-group">
 
-
-    <div class="field">
-
-      <label>
+      <label class="form-label">
         Goal
       </label>
 
       <input
         id="goalInput"
-        type="text">
+        class="form-input"
+        maxlength="120"
+      >
 
     </div>
 
+    <div class="form-group">
 
-    <div class="field">
-
-      <label>
+      <label class="form-label">
         ADHD Micro-Move
       </label>
 
-      <input
+      <textarea
         id="microInput"
-        type="text">
+        class="form-textarea"
+        maxlength="180"
+      ></textarea>
 
     </div>
 
+    <div class="form-group">
 
-    <div class="field">
-
-      <label>
+      <label class="form-label">
         Category
       </label>
 
       <input
         id="categoryInput"
-        type="text">
+        class="form-input"
+        maxlength="30"
+      >
 
     </div>
-
 
     <div class="modal-actions">
 
-      <button
-        class="btn"
-        onclick="closeEditModal()">
-
+      <button class="modal-btn cancel-btn" onclick="closeEditModal()">
         Cancel
-
       </button>
 
-      <button
-        class="btn primary"
-        onclick="saveGoal()">
-
-        Save
-
+      <button class="modal-btn save-btn" onclick="saveGoal()">
+        Save Goal
       </button>
 
     </div>
@@ -1918,84 +1197,18 @@ button{
 </div>
 
 
-<!-- =======================================================
-     STATUS MODAL
-======================================================= -->
+<!-- CELEBRATION -->
 
-<div
-  class="modal"
-  id="statusModal">
+<div class="celebration" id="celebration">
 
-  <div class="status-modal">
+  <div class="celebration-message">
 
-    <div class="status-modal-title">
-      Change Status
-    </div>
-
-    <div class="status-modal-subtitle">
-      What is the energy of this goal right now?
-    </div>
-
-
-    <div class="status-options">
-
-      <button
-        class="status-option notstarted"
-        onclick="chooseStatus('notstarted')">
-
-        ☁️ Not Started
-
-      </button>
-
-      <button
-        class="status-option frozen"
-        onclick="chooseStatus('frozen')">
-
-        ❄️ Frozen
-
-      </button>
-
-
-      <button
-        class="status-option progress"
-        onclick="chooseStatus('progress')">
-
-        💎 In Progress
-
-      </button>
-
-
-      <button
-        class="status-option done"
-        onclick="chooseStatus('done')">
-
-        ✨ Done
-
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =======================================================
-     CELEBRATION
-======================================================= -->
-
-<div
-  class="celebration"
-  id="celebration">
-
-  <div class="celebration-box">
-
-    <h2>
-      100 / 100 🍨✨
+    <h2 id="celebrationTitle">
+      Goal complete ✨
     </h2>
 
-    <p>
-      You completed your 100 goals.
+    <p id="celebrationText">
+      Keep going.
     </p>
 
   </div>
@@ -2004,6 +1217,19 @@ button{
 
 
 <script>
+
+/* =========================================================
+   DATA
+========================================================= */
+
+const STORAGE_KEY = "iceCream100Goals";
+
+let goals = [];
+let currentFilter = "all";
+let selectedGoalId = null;
+let editingGoalId = null;
+let draggedId = null;
+
 
 /* =========================================================
    DEFAULT 100 GOALS
@@ -2125,396 +1351,969 @@ const defaultGoals = [
 
 
 /* =========================================================
-   STATE
-========================================================= */
-
-const STORAGE_KEY = "iceCream100Goals";
-
-let goals = [];
-let currentFilter = "all";
-let editingId = null;
-let statusEditingId = null;
-let draggedId = null;
-
-
-/* =========================================================
-   CREATE DEFAULTS
+   CREATE DEFAULT DATA
 ========================================================= */
 
 function createDefaults(){
-  return defaultGoals.map((item, index) => ({
-    id: Date.now() + index + Math.random(),
-    title: item[0],
-    micro: item[1],
-    category: item[2],
-    status: "notstarted"
+
+  return defaultGoals.map((item,index)=>({
+
+    id:index+1,
+
+    title:item[0],
+
+    micro:item[1],
+
+    category:item[2],
+
+    status:"frozen"
+
   }));
+
 }
 
 
 /* =========================================================
-   LOAD & SAVE
+   LOAD / SAVE
 ========================================================= */
 
 function load(){
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if(saved){
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  if(saved){
+
+    try{
+
       goals = JSON.parse(saved);
-    } else {
-      goals = createDefaults();
-      save();
+
+      goals = goals.map((g,index)=>({
+
+        id:g.id ?? index+1,
+
+        title:g.title || "Untitled Goal",
+
+        micro:g.micro || "Choose the smallest next action.",
+
+        category:g.category || "LIFE",
+
+        status:
+          g.status ||
+          (g.completed ? "done" : "frozen")
+
+      }));
+
+      return;
+
+    }catch(e){
+
+      console.warn("Could not load saved goals.");
+
     }
-  } catch(e) {
-    goals = createDefaults();
+
   }
-  render();
+
+  goals = createDefaults();
+
 }
 
+
 function save(){
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(goals));
-  } catch(e) {
-    console.error("Failed to save to localStorage", e);
-  }
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(goals)
+  );
+
 }
 
 
 /* =========================================================
-   RENDER & UPDATE STATS
+   STATS
+========================================================= */
+
+function updateStats(){
+
+  const total = goals.length;
+
+  const done =
+    goals.filter(g=>g.status==="done").length;
+
+  const progress =
+    goals.filter(g=>g.status==="progress").length;
+
+  const percentage =
+    total === 0
+      ? 0
+      : Math.round((done / total) * 100);
+
+  document.getElementById("percentage").textContent =
+    percentage + "%";
+
+  document.getElementById("doneCount").textContent =
+    done;
+
+  document.getElementById("progressCount").textContent =
+    progress;
+
+  document.getElementById("totalCount").textContent =
+    total;
+
+  document.getElementById("progressFill").style.width =
+    percentage + "%";
+
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function setFilter(filter,button){
+
+  currentFilter = filter;
+
+  document.querySelectorAll(".filter-btn")
+    .forEach(btn=>btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  render();
+
+}
+
+
+/* =========================================================
+   RENDER
 ========================================================= */
 
 function render(){
-  const grid = document.getElementById("goalGrid");
-  const query = document.getElementById("search").value.toLowerCase().trim();
-
-  grid.innerHTML = "";
-
-  const filtered = goals.filter(g => {
-    const matchesFilter = currentFilter === "all" || g.status === currentFilter;
-    const matchesSearch = g.title.toLowerCase().includes(query) || 
-                          g.micro.toLowerCase().includes(query) || 
-                          g.category.toLowerCase().includes(query);
-    return matchesFilter && matchesSearch;
-  });
-
-  if(filtered.length === 0){
-    grid.innerHTML = `<div class="empty">No goals found ✨</div>`;
-  } else {
-    filtered.forEach((goal) => {
-      const originalIndex = goals.findIndex(g => g.id === goal.id);
-      const card = createCardHTML(goal, originalIndex + 1);
-      grid.appendChild(card);
-    });
-  }
 
   updateStats();
-}
 
-function updateStats(){
-  const notStartedCount = goals.filter(g => g.status === "notstarted").length;
-  const progressCount = goals.filter(g => g.status === "progress").length;
-  const doneCount = goals.filter(g => g.status === "done").length;
-  const total = goals.length;
-  const pct = total > 0 ? Math.round((doneCount / total) * 100) : 0;
+  const grid =
+    document.getElementById("grid");
 
-  document.getElementById("notStartedCount").innerText = notStartedCount;
-  document.getElementById("progressCount").innerText = progressCount;
-  document.getElementById("completedCount").innerText = doneCount;
-  document.getElementById("percentage").innerText = pct + "%";
-  document.getElementById("progressText").innerText = `${doneCount} / ${total}`;
-  document.getElementById("progressBar").style.width = pct + "%";
+  const query =
+    document.getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
 
-  if(doneCount === total && total > 0){
-    triggerCelebration();
-  }
-}
+  let visible = goals.filter(goal=>{
 
+    const filterMatch =
+      currentFilter === "all" ||
+      goal.status === currentFilter;
 
-/* =========================================================
-   CARD BUILDER
-========================================================= */
+    const searchMatch =
+      !query ||
+      goal.title.toLowerCase().includes(query) ||
+      goal.micro.toLowerCase().includes(query) ||
+      goal.category.toLowerCase().includes(query);
 
-function createCardHTML(goal, displayNum){
-  const card = document.createElement("div");
-  card.className = `card status-${goal.status}`;
-  card.id = `card-${goal.id}`;
-  card.draggable = true;
+    return filterMatch && searchMatch;
 
-  card.onclick = (e) => {
-    if(!e.target.closest('.icon-btn')){
-      openStatusModal(goal.id);
-    }
-  };
+  });
 
-  card.ondragstart = (e) => {
-    draggedId = goal.id;
-    card.classList.add("dragging");
-  };
+  if(!visible.length){
 
-  card.ondragend = () => {
-    card.classList.remove("dragging");
-    draggedId = null;
-  };
-
-  card.ondragover = (e) => e.preventDefault();
-
-  card.ondrop = (e) => {
-    e.preventDefault();
-    if(draggedId && draggedId !== goal.id){
-      const fromIdx = goals.findIndex(g => g.id === draggedId);
-      const toIdx = goals.findIndex(g => g.id === goal.id);
-      const [moved] = goals.splice(fromIdx, 1);
-      goals.splice(toIdx, 0, moved);
-      save();
-      render();
-    }
-  };
-
-  const statusLabelText = goal.status === "notstarted" ? "☁️ Not Started" :
-                          goal.status === "frozen" ? "❄️ Frozen" :
-                          goal.status === "progress" ? "💎 In Progress" : "✨ Done";
-
-  card.innerHTML = `
-    <div class="status-strip"></div>
-    <div class="card-top">
-      <span class="number">#${String(displayNum).padStart(2, '0')}</span>
-      <span class="category">${escapeHTML(goal.category)}</span>
-    </div>
-    <div class="status-label">${statusLabelText}</div>
-    <div class="goal-title">${escapeHTML(goal.title)}</div>
-    <div class="micro">
-      <span class="micro-label">Micro-Move</span>
-      ${escapeHTML(goal.micro)}
-    </div>
-    <div class="card-bottom">
-      <span class="hint">click to change</span>
-      <div class="icon-actions">
-        <button class="icon-btn" onclick="openEditModal(${goal.id}); event.stopPropagation();">✏️</button>
-        <button class="icon-btn delete" onclick="deleteGoal(${goal.id}); event.stopPropagation();">🗑️</button>
+    grid.innerHTML = `
+      <div class="empty">
+        <div class="empty-title">Nothing here yet ✨</div>
+        <div>Try another filter or search.</div>
       </div>
-    </div>
-  `;
+    `;
 
-  return card;
-}
+    updateNextAction();
 
-
-/* =========================================================
-   NEXT ACTION ALGORITHM
-========================================================= */
-
-function nextAction(){
-  let candidates = goals.filter(g => g.status === "progress");
-  if(candidates.length === 0){
-    candidates = goals.filter(g => g.status === "notstarted");
-  }
-  if(candidates.length === 0){
-    candidates = goals.filter(g => g.status === "frozen");
-  }
-
-  if(candidates.length === 0){
-    document.getElementById("nextActionText").innerHTML = `All goals are complete! Time to celebrate! 🍨✨`;
     return;
   }
 
-  const selected = candidates[Math.floor(Math.random() * candidates.length)];
+  grid.innerHTML = visible.map((goal,index)=>{
 
-  document.getElementById("nextActionText").innerHTML = `
-    <span class="goal-name">${escapeHTML(selected.title)}</span> — 
-    <span class="micro-action">${escapeHTML(selected.micro)}</span>
-  `;
+    const statusText =
+      goal.status === "frozen"
+        ? "❄️ Frozen"
+        : goal.status === "progress"
+          ? "💎 In Progress"
+          : "✨ Done";
 
-  if(currentFilter !== "all" && selected.status !== currentFilter){
-    setFilter("all");
-  }
+    return `
 
-  setTimeout(() => {
-    const el = document.getElementById(`card-${selected.id}`);
-    if(el){
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-      el.classList.add("highlight");
-      setTimeout(() => el.classList.remove("highlight"), 1400);
-    }
-  }, 100);
+      <article
+        class="card status-${goal.status}"
+        data-id="${goal.id}"
+        draggable="true"
+        onclick="cardClicked(event,${goal.id})"
+        ondragstart="dragStart(event,${goal.id})"
+        ondragover="dragOver(event)"
+        ondragleave="dragLeave(event)"
+        ondragend="dragEnd(event)"
+        ondrop="drop(event,${goal.id})"
+      >
+
+        <div class="status-strip"></div>
+
+        <div class="card-top">
+
+          <span class="card-number">
+            ${String(goals.indexOf(goal)+1).padStart(3,"0")}
+          </span>
+
+          <span class="category">
+            ${escapeHTML(goal.category)}
+          </span>
+
+        </div>
+
+        <div class="status-label">
+          ${statusText}
+        </div>
+
+        <h3 class="goal-title">
+          ${escapeHTML(goal.title)}
+        </h3>
+
+        <div class="micro">
+
+          <span class="micro-label">
+            Next tiny move
+          </span>
+
+          ${escapeHTML(goal.micro)}
+
+        </div>
+
+        <div class="card-actions">
+
+          <button
+            class="icon-btn"
+            title="Edit"
+            onclick="editGoal(event,${goal.id})"
+          >
+            ✎
+          </button>
+
+          <button
+            class="icon-btn"
+            title="Delete"
+            onclick="deleteGoal(event,${goal.id})"
+          >
+            ×
+          </button>
+
+        </div>
+
+      </article>
+
+    `;
+
+  }).join("");
+
+  updateNextAction();
+
 }
 
 
 /* =========================================================
-   MODALS & EDITING
+   CARD CLICK → STATUS
 ========================================================= */
 
-function openAddModal(){
-  editingId = null;
-  document.getElementById("modalTitle").innerText = "Add Goal";
-  document.getElementById("goalInput").value = "";
-  document.getElementById("microInput").value = "";
-  document.getElementById("categoryInput").value = "LIFE";
-  document.getElementById("editModal").classList.add("show");
+function cardClicked(event,id){
+
+  if(
+    event.target.closest(".icon-btn") ||
+    event.target.closest("button")
+  ){
+    return;
+  }
+
+  selectedGoalId = id;
+
+  document
+    .getElementById("statusModal")
+    .classList.add("show");
+
 }
 
-function openEditModal(id){
-  editingId = id;
-  const goal = goals.find(g => g.id === id);
+
+function chooseStatus(status){
+
+  if(selectedGoalId === null) return;
+
+  const goal =
+    goals.find(g=>g.id === selectedGoalId);
+
   if(!goal) return;
 
-  document.getElementById("modalTitle").innerText = "Edit Goal";
-  document.getElementById("goalInput").value = goal.title;
-  document.getElementById("microInput").value = goal.micro;
-  document.getElementById("categoryInput").value = goal.category;
-  document.getElementById("editModal").classList.add("show");
+  const oldStatus = goal.status;
+
+  goal.status = status;
+
+  save();
+
+  document
+    .getElementById("statusModal")
+    .classList.remove("show");
+
+  render();
+
+  if(
+    status === "done" &&
+    oldStatus !== "done"
+  ){
+
+    celebrate();
+
+  }
+
+  selectedGoalId = null;
+
 }
 
-function closeEditModal(){
-  document.getElementById("editModal").classList.remove("show");
+
+/* =========================================================
+   NEXT ACTION
+========================================================= */
+
+function updateNextAction(){
+
+  let target =
+    goals.find(g=>g.status==="progress");
+
+  if(!target){
+
+    target =
+      goals.find(g=>g.status!=="done");
+
+  }
+
+  if(!target){
+
+    document.getElementById("nextTitle").textContent =
+      "All goals completed ✨";
+
+    document.getElementById("nextMicro").textContent =
+      "You actually did it. Celebrate.";
+
+    return;
+
+  }
+
+  document.getElementById("nextTitle").textContent =
+    target.title;
+
+  document.getElementById("nextMicro").textContent =
+    target.micro;
+
 }
+
+
+function nextAction(){
+
+  let target =
+    goals.find(g=>g.status==="progress");
+
+  if(!target){
+
+    target =
+      goals.find(g=>g.status==="frozen");
+
+  }
+
+  if(!target){
+
+    target =
+      goals.find(g=>g.status!=="done");
+
+  }
+
+  if(!target){
+
+    celebrate(true);
+
+    return;
+
+  }
+
+  const card =
+    document.querySelector(
+      `.card[data-id="${target.id}"]`
+    );
+
+  if(card){
+
+    card.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+    card.animate(
+      [
+        {transform:"scale(1)"},
+        {transform:"scale(1.035)"},
+        {transform:"scale(1)"}
+      ],
+      {
+        duration:600
+      }
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   EDIT
+========================================================= */
+
+function editGoal(event,id){
+
+  event.stopPropagation();
+
+  const goal =
+    goals.find(g=>g.id===id);
+
+  if(!goal) return;
+
+  editingGoalId = id;
+
+  document.getElementById("editModalTitle").textContent =
+    "Edit Goal";
+
+  document.getElementById("goalInput").value =
+    goal.title;
+
+  document.getElementById("microInput").value =
+    goal.micro;
+
+  document.getElementById("categoryInput").value =
+    goal.category;
+
+  document
+    .getElementById("editModal")
+    .classList.add("show");
+
+}
+
+
+function openAddModal(){
+
+  editingGoalId = null;
+
+  document.getElementById("editModalTitle").textContent =
+    "Add Goal";
+
+  document.getElementById("goalInput").value = "";
+
+  document.getElementById("microInput").value =
+    "Choose the smallest next action.";
+
+  document.getElementById("categoryInput").value =
+    "LIFE";
+
+  document
+    .getElementById("editModal")
+    .classList.add("show");
+
+}
+
 
 function saveGoal(){
-  const title = document.getElementById("goalInput").value.trim();
-  const micro = document.getElementById("microInput").value.trim();
-  const category = document.getElementById("categoryInput").value.trim().toUpperCase() || "LIFE";
 
-  if(!title) return;
+  const title =
+    document.getElementById("goalInput")
+      .value
+      .trim();
 
-  if(editingId !== null){
-    const goal = goals.find(g => g.id === editingId);
+  const micro =
+    document.getElementById("microInput")
+      .value
+      .trim();
+
+  const category =
+    document.getElementById("categoryInput")
+      .value
+      .trim()
+      .toUpperCase();
+
+  if(!title){
+
+    alert("Please enter a goal.");
+
+    return;
+
+  }
+
+  if(editingGoalId !== null){
+
+    const goal =
+      goals.find(g=>g.id===editingGoalId);
+
     if(goal){
+
       goal.title = title;
-      goal.micro = micro;
-      goal.category = category;
+
+      goal.micro =
+        micro ||
+        "Choose the smallest next action.";
+
+      goal.category =
+        category || "LIFE";
+
     }
-  } else {
+
+  }else{
+
+    const newId =
+      goals.length
+        ? Math.max(...goals.map(g=>g.id))+1
+        : 1;
+
     goals.push({
-      id: Date.now() + Math.random(),
-      title: title,
-      micro: micro,
-      category: category,
-      status: "notstarted"
+
+      id:newId,
+
+      title,
+
+      micro:
+        micro ||
+        "Choose the smallest next action.",
+
+      category:
+        category || "LIFE",
+
+      status:"frozen"
+
     });
+
   }
 
   save();
-  render();
+
   closeEditModal();
-}
 
-function deleteGoal(id){
-  if(confirm("Are you sure you want to delete this goal?")){
-    goals = goals.filter(g => g.id !== id);
-    save();
-    render();
-  }
-}
-
-
-/* =========================================================
-   STATUS MODAL
-========================================================= */
-
-function openStatusModal(id){
-  statusEditingId = id;
-  document.getElementById("statusModal").classList.add("show");
-}
-
-function chooseStatus(status){
-  if(statusEditingId !== null){
-    const goal = goals.find(g => g.id === statusEditingId);
-    if(goal){
-      goal.status = status;
-      save();
-      render();
-    }
-  }
-  document.getElementById("statusModal").classList.remove("show");
-  statusEditingId = null;
-}
-
-window.onclick = function(e){
-  const editModal = document.getElementById("editModal");
-  const statusModal = document.getElementById("statusModal");
-  if(e.target === editModal) closeEditModal();
-  if(e.target === statusModal){
-    statusModal.classList.remove("show");
-    statusEditingId = null;
-  }
-};
-
-
-/* =========================================================
-   FILTERS & RESET
-========================================================= */
-
-function setFilter(filter){
-  currentFilter = filter;
   render();
+
 }
+
+
+function closeEditModal(){
+
+  document
+    .getElementById("editModal")
+    .classList.remove("show");
+
+  editingGoalId = null;
+
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+function deleteGoal(event,id){
+
+  event.stopPropagation();
+
+  const goal =
+    goals.find(g=>g.id===id);
+
+  if(!goal) return;
+
+  const confirmed =
+    confirm(
+      `Delete "${goal.title}"?`
+    );
+
+  if(!confirmed) return;
+
+  goals =
+    goals.filter(g=>g.id!==id);
+
+  save();
+
+  render();
+
+}
+
+
+/* =========================================================
+   DRAG & DROP
+========================================================= */
+
+function dragStart(event,id){
+
+  draggedId = id;
+
+  event.currentTarget.classList.add("dragging");
+
+  event.dataTransfer.effectAllowed = "move";
+
+}
+
+
+function dragOver(event){
+
+  event.preventDefault();
+
+  event.currentTarget.classList.add("drag-over");
+
+}
+
+
+function dragLeave(event){
+
+  event.currentTarget.classList.remove("drag-over");
+
+}
+
+
+function dragEnd(event){
+
+  event.currentTarget.classList.remove("dragging");
+
+  document
+    .querySelectorAll(".card")
+    .forEach(card=>{
+      card.classList.remove("drag-over");
+    });
+
+}
+
+
+function drop(event,targetId){
+
+  event.preventDefault();
+
+  event.stopPropagation();
+
+  document
+    .querySelectorAll(".card")
+    .forEach(card=>{
+      card.classList.remove("drag-over");
+      card.classList.remove("dragging");
+    });
+
+  if(
+    draggedId === null ||
+    draggedId === targetId
+  ){
+    return;
+  }
+
+  const fromIndex =
+    goals.findIndex(g=>g.id===draggedId);
+
+  const toIndex =
+    goals.findIndex(g=>g.id===targetId);
+
+  if(
+    fromIndex === -1 ||
+    toIndex === -1
+  ){
+    return;
+  }
+
+  const moved =
+    goals.splice(fromIndex,1)[0];
+
+  goals.splice(toIndex,0,moved);
+
+  save();
+
+  render();
+
+  draggedId = null;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 function resetEverything(){
-  if(confirm("Reset all 100 goals to default state? Custom changes will be cleared.")){
-    localStorage.removeItem(STORAGE_KEY);
-    goals = createDefaults();
-    save();
-    render();
-  }
+
+  const confirmed =
+    confirm(
+      "Reset all 100 goals to their original Frozen state?"
+    );
+
+  if(!confirmed) return;
+
+  goals = createDefaults();
+
+  save();
+
+  currentFilter = "all";
+
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach(btn=>btn.classList.remove("active"));
+
+  document
+    .querySelector('[data-filter="all"]')
+    .classList.add("active");
+
+  document.getElementById("search").value = "";
+
+  render();
+
 }
 
 
 /* =========================================================
-   CELEBRATION & CONFETTI
+   ESCAPE HTML
 ========================================================= */
 
-function triggerCelebration(){
-  const cel = document.getElementById("celebration");
-  if(cel.classList.contains("show")) return;
-  
-  cel.classList.add("show");
-  
-  for(let i = 0; i < 40; i++){
-    createConfetti();
-  }
+function escapeHTML(value){
 
-  setTimeout(() => {
-    cel.classList.remove("show");
-  }, 4000);
-}
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-function createConfetti(){
-  const colors = ["#efb6c4", "#c9d8c5", "#d8cee3", "#f3d2bd", "#d0cac4"];
-  const el = document.createElement("div");
-  el.className = "confetti";
-  el.style.background = colors[Math.floor(Math.random() * colors.length)];
-  el.style.left = "50vw";
-  el.style.top = "50vh";
-  
-  const x = (Math.random() - 0.5) * 600 + "px";
-  const y = (Math.random() - 0.5) * 600 + "px";
-  el.style.setProperty("--x", x);
-  el.style.setProperty("--y", y);
-
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 2000);
 }
 
 
 /* =========================================================
-   HELPERS
+   SUCCESS SOUND
 ========================================================= */
 
-function escapeHTML(str){
-  return String(str || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+function playSuccessSound(){
+
+  try{
+
+    const AudioContext =
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+    if(!AudioContext) return;
+
+    const ctx =
+      new AudioContext();
+
+    const notes =
+      [523.25,659.25,783.99];
+
+    notes.forEach((frequency,index)=>{
+
+      const oscillator =
+        ctx.createOscillator();
+
+      const gain =
+        ctx.createGain();
+
+      oscillator.frequency.value =
+        frequency;
+
+      oscillator.type = "sine";
+
+      oscillator.connect(gain);
+
+      gain.connect(ctx.destination);
+
+      const start =
+        ctx.currentTime + index*.11;
+
+      gain.gain.setValueAtTime(
+        .0001,
+        start
+      );
+
+      gain.gain.exponentialRampToValueAtTime(
+        .16,
+        start+.02
+      );
+
+      gain.gain.exponentialRampToValueAtTime(
+        .0001,
+        start+.25
+      );
+
+      oscillator.start(start);
+
+      oscillator.stop(start+.27);
+
+    });
+
+  }catch(e){}
+
 }
 
 
 /* =========================================================
-   INIT
+   CONFETTI
+========================================================= */
+
+function createConfetti(amount=70){
+
+  const colors = [
+    "#efb6c4",
+    "#d8cee3",
+    "#c9d8c5",
+    "#9bb8c9",
+    "#f3d2bd",
+    "#fff1c9"
+  ];
+
+  for(let i=0;i<amount;i++){
+
+    const piece =
+      document.createElement("div");
+
+    piece.className = "confetti";
+
+    piece.style.left =
+      Math.random()*100 + "vw";
+
+    piece.style.top =
+      "-20px";
+
+    piece.style.background =
+      colors[
+        Math.floor(
+          Math.random()*colors.length
+        )
+      ];
+
+    piece.style.setProperty(
+      "--x",
+      (Math.random()*240-120)+"px"
+    );
+
+    piece.style.animationDuration =
+      (2.5+Math.random()*2.5)+"s";
+
+    piece.style.animationDelay =
+      (Math.random()*.5)+"s";
+
+    piece.style.transform =
+      `rotate(${Math.random()*360}deg)`;
+
+    document.body.appendChild(piece);
+
+    setTimeout(()=>{
+      piece.remove();
+    },6000);
+
+  }
+
+}
+
+
+/* =========================================================
+   CELEBRATION
+========================================================= */
+
+function celebrate(allDone=false){
+
+  playSuccessSound();
+
+  createConfetti(
+    allDone ? 180 : 70
+  );
+
+  const celebration =
+    document.getElementById("celebration");
+
+  const title =
+    document.getElementById("celebrationTitle");
+
+  const text =
+    document.getElementById("celebrationText");
+
+  if(allDone){
+
+    title.textContent =
+      "100 / 100 ✨";
+
+    text.textContent =
+      "You completed your entire list.";
+
+  }else{
+
+    title.textContent =
+      "Goal complete ✨";
+
+    text.textContent =
+      "One more thing moved forward.";
+
+  }
+
+  celebration.classList.add("show");
+
+  setTimeout(()=>{
+
+    celebration.classList.remove("show");
+
+  },1800);
+
+}
+
+
+/* =========================================================
+   MODAL EVENTS
+========================================================= */
+
+document
+  .getElementById("statusModal")
+  .addEventListener("click",function(event){
+
+    if(event.target === this){
+
+      this.classList.remove("show");
+
+      selectedGoalId = null;
+
+    }
+
+  });
+
+
+document
+  .getElementById("editModal")
+  .addEventListener("click",function(event){
+
+    if(event.target === this){
+
+      closeEditModal();
+
+    }
+
+  });
+
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+
+    document
+      .getElementById("statusModal")
+      .classList.remove("show");
+
+    closeEditModal();
+
+    selectedGoalId = null;
+
+  }
+
+});
+
+
+/* =========================================================
+   START
 ========================================================= */
 
 load();
+
+render();
 
 </script>
 
